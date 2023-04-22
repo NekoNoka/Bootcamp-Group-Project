@@ -24,7 +24,7 @@
     height: 80px;
     width: 100%;
   }
-  label.logo {
+  label.header {
     color: var(--white);
     font-size: 30px;
     line-height: 80px;
