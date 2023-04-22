@@ -25,6 +25,15 @@
     position: relative;
     border-radius: 2.5em;
   }
+  .search-bar input[type=text] {
+    font-family: inherit;
+    font-weight: bold;
+    color: #535353;
+    background-color: transparent;
+    border: none;
+    box-sizing: border-box;
+  }
+  
 
   nav {
     position: absolute;
