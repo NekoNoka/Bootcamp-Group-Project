@@ -16,19 +16,20 @@
   }
   body {
     font-family: 'Poppins', sans-serif;
+    background-color: #161618;
   }
 
   .search-bar {
     font-size: 20px;
-    border: solid .25em #fff;
+    border: solid .1em #fff;
     display: inline-block;
     position: relative;
-    border-radius: 2.5em;
+    border-radius: .1em;
   }
   .search-bar input[type=text] {
     font-family: inherit;
     font-weight: bold;
-    color: #535353;
+    color: #f6f6f6;
     background-color: transparent;
     border: none;
     box-sizing: border-box;
