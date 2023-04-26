@@ -1,1 +1,0 @@
-fetch("https://randommer.io/api/Text/Password?length=20&hasDigits=true&hasUppercase=true&hasSpecial=true", {headers: {"X-API-KEY": "fa748e5d1c46473bafc1f633041a6c12"}}).then(e => e.body.values().next().then(e => console.log(new TextDecoder().decode(e.value))))
