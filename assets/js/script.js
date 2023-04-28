@@ -79,3 +79,6 @@ function getApi(event) {
 }
 
 searchBar.addEventListener("keydown", getApi);
+
+
+
