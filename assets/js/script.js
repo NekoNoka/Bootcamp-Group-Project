@@ -8,11 +8,12 @@ function getApi(event) {
    for (let i = 0; i < history.length; i++) {
       if (history[i].name === searchBar.value) return displayData(history[i].data);
    }
-   let requestUrl = "http://www.omdbapi.com/?apikey=eeff1550" + "&s=" + searchBar.value;
+   let requestUrl = "https://www.omdbapi.com/?apikey=eeff1550" + "&s=" + searchBar.value;
 
    fetch(requestUrl).then(function (response) {
       response.json().then(function (data) {
          if (data.Response !== "True") return console.error("The search returned no results"); // we probably want to do more than logging an error.
+         localStorage.setItem("historics", (history.push({ value: data.Search, name: searchBar.value }, JSON.stringify(history))));
          displayData(data.Search);
       });
    });
@@ -25,8 +26,6 @@ function displayData(data) {
       let img = document.createElement('img');
       if (movie.Poster === "N/A") continue;
       img.src = movie.Poster;
-
-      // more elements to add goes here.
       tableBody.appendChild(img);
    }
 }
