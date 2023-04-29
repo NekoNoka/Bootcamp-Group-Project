@@ -60,12 +60,13 @@ function getApi(event) {
          console.log(response);
          response.json().then(function (json) {
             console.log(json.status, json);
-            if (json.status !== "OK") return console.error("The search returned no results for nytimes"); // we probably want to do more than logging an error.
+            if (json.status !== "OK") return console.error("The search broke for nytimes"); // we probably want to do more than logging an error.
+            if (json.results === null) return console.error("The search returned no results for nytimes"); // we probably want to do more than logging an error.
             history2.push({ value: json, name: searchBar.value });
             localStorage.setItem("nytimesStorage", JSON.stringify(history2));
             nytimesImgContainer.innerHTML = "";
             let data = json.results;
-            console.log("a nything");
+            console.log(data);
             for (let i = 0; i < data.length; i++) {
                let movie = data[i];
                let img = document.createElement('img');
@@ -79,6 +80,3 @@ function getApi(event) {
 }
 
 searchBar.addEventListener("keydown", getApi);
-
-
-
