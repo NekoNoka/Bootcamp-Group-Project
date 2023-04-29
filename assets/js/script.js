@@ -7,7 +7,7 @@ let history2 = localStorage.getItem("nytimesStorage") ? JSON.parse(localStorage.
 function getApi(event) {
    if (event.key !== "Enter") return;
    if (!searchBar.value) return;
-   let omdb = "https://www.omdbapi.com/?apikey=eeff1550" + "&s=" + searchBar.value;
+   let omdb = "https://www.omdbapi.com/?apikey=eeff1550&type=movie" + "&s=" + searchBar.value ;
    let nytimes = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=GrJLtpKFDzJKSy1um4IkiszoYQGrxb26" + "&query=" + searchBar.value;
    (function(){
       for (let i = 0; i < history.length; i++) {
