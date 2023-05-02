@@ -4,12 +4,11 @@ let searchBar = document.querySelector('.search_bar input');
 let history = localStorage.getItem("omdbStorage") ? JSON.parse(localStorage.getItem("omdbStorage")) : [];
 let history2 = localStorage.getItem("nytimesStorage") ? JSON.parse(localStorage.getItem("nytimesStorage")) : [];
 
-function getApi(event) {
-   if (event.key !== "Enter") return;
+function getApi() {
    if (!searchBar.value) return;
-   let omdb = "https://www.omdbapi.com/?apikey=eeff1550&type=movie" + "&s=" + searchBar.value ;
+   let omdb = "https://www.omdbapi.com/?apikey=eeff1550&type=movie" + "&s=" + searchBar.value;
    let nytimes = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=GrJLtpKFDzJKSy1um4IkiszoYQGrxb26" + "&query=" + searchBar.value;
-   (function(){
+   (function () {
       for (let i = 0; i < history.length; i++) {
          if (history[i].name === searchBar.value) {
             omdbImgContainer.innerHTML = "";
@@ -32,6 +31,13 @@ function getApi(event) {
             omdbImgContainer.innerHTML = "";
             let data = json.Search;
             for (let i = 0; i < data.length; i++) {
+  
+                  var title = json['Title']
+                  var time = json['Year']
+      
+                  movie.innerHTML = `Movie: ${title}`
+                  Year.innerHTML = `Year: ${time} `
+
                let movie = data[i];
                let img = document.createElement('img');
                if (movie.Poster === "N/A") continue;
@@ -41,7 +47,7 @@ function getApi(event) {
          });
       });
    })();
-   (function(){
+   (function () {
       for (let i = 0; i < history2.length; i++) {
          if (history2[i].name === searchBar.value) {
             nytimesImgContainer.innerHTML = "";
@@ -66,7 +72,7 @@ function getApi(event) {
             localStorage.setItem("nytimesStorage", JSON.stringify(history2));
             nytimesImgContainer.innerHTML = "";
             let data = json.results;
-            console.log(data);
+            console.log("a nything");
             for (let i = 0; i < data.length; i++) {
                let movie = data[i];
                let img = document.createElement('img');
@@ -79,4 +85,20 @@ function getApi(event) {
    })();
 }
 
-searchBar.addEventListener("keydown", getApi);
+
+
+
+   fetch()
+      .then(res => res.json()
+
+         .then(data => {
+            var titLe = data['name']
+            var time = data['year']
+
+            Movie.innerHTML = `Movie: ${titLe}`
+            Year.innerHTML = `Year: ${time} `
+         })
+      )
+
+
+
