@@ -5,16 +5,11 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="assets/js/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <title>Movies Ranking</title>
-  <!-- J here -->
-
+  
 <body>
   <nav>
-    <!-- <input type="checkbox" id="check" />
-      <label for="check" class="checkbtn">
-        <i class="bx bx-menu"></i>
-      </label> -->
     <label class="header">MoviesReviews</label>
     <ul>
       <li><a href="#" class="active">Home</a></li>
@@ -26,10 +21,9 @@
 
   <div class="search_bar">
     <input type="text" placeholder="Search here..." name="text" class="input">
-    <button class = "button" id="btn">search</button>
+    <button class = "button" id="btn" onclick="getApi()"><img id="btn" src="/img/search.png"></button>
   </div>
 
-  <!-- J here -->
   <div class="section_container">
     <section class="card" id="firstA">
       <h2>First API</h2>
@@ -42,11 +36,7 @@
       </div>
     </section>
   </div>
-  <!-- <section>
-    <div class="comment">
-      <h3>Comments</h3>
-    </div>
-    </section> -->
+  
 </body>
 <script src="assets/js/script.js"></script>
 
