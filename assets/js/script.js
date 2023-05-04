@@ -3,8 +3,9 @@ let nytimesImgContainer = document.querySelector('#secondA .content');
 let searchBar = document.querySelector('.search_bar input');
 let omdbStorage = localStorage.getItem("omdbStorage") ? JSON.parse(localStorage.getItem("omdbStorage")) : [];
 let nytStorage = localStorage.getItem("nytimesStorage") ? JSON.parse(localStorage.getItem("nytimesStorage")) : [];
-var omdbPageNumber = 1;
-var previousSearch = "";
+let omdbPageNumber = 1;
+let previousSearch = "";
+let lastOmdbPage = 1;
 
 function getApi(newQuery) {
    if (newQuery) previousSearch = searchBar.value;
@@ -19,6 +20,7 @@ function getApi(newQuery) {
       let tempFound = false;
       for (let i = 0; i < omdbStorage.length; i++) {
          if (omdbStorage[i].name === previousSearch && omdbStorage[i].page == omdbPageNumber) {
+            lastOmdbPage = Math.ceil(omdbStorage[i].total / 10);
             let movie = omdbStorage[i].value;
             let img = document.createElement('img');
             if (movie.Poster === "N/A") continue;
@@ -33,8 +35,9 @@ function getApi(newQuery) {
          response.json().then(function (json) {
             if (json.Response !== "True") return console.error("The search returned no results for omdb"); // we probably want to do more than logging an error.
             let data = json.Search;
+            lastOmdbPage = Math.ceil(json.totalResults / 10);
             for (let i = 0; i < data.length; i++) {
-               omdbStorage.push({ value: data[i], name: previousSearch, page: omdbPageNumber });
+               omdbStorage.push({ value: data[i], name: previousSearch, page: omdbPageNumber, total: json.totalResults });
                // var title = json['Title']
                // var time = json['Year']
 
@@ -106,12 +109,23 @@ function setPage(id) {
       getApi();
    }
    if (id == 5) {
-      omdbPageNumber = 5
+      omdbPageNumber = lastOmdbPage
+      console.log(lastOmdbPage);
       getApi();
    }
 }
 
 
+for (var i = 0; i < omdbStorage.length; i++) {
+   for (var j = 0; j < nytStorage.length; j++) {
+      if (omdbStorage[i].name.toLowerCase() == nytStorage[j].name.toLowerCase() && omdbStorage[i].value.Year == nytStorage[j].value.opening_date.slice(0, 4)) {
+         // make api block 1 display movie poster,
+         // make api block 2 display a review
 
+      }
+
+   }
+
+}
 
 
