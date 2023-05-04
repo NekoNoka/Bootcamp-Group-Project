@@ -2,12 +2,11 @@
   --blue: #12d2db;
   --white: #fcf2fa;
   --shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.3);
-  --navColor: linear-gradient(
-    to right,
-    rgba(178, 47, 147, 0.6) 5%,
-    rgba(35, 6, 34, 0.9)
-  );
+  --navColor: linear-gradient(to right,
+      rgba(178, 47, 147, 0.6) 5%,
+      rgba(35, 6, 34, 0.9));
 }
+
 .poster {
   width: 200px;
   height: 260px;
@@ -19,6 +18,10 @@
   margin: 0;
   text-decoration: none;
   box-sizing: border-box;
+}
+
+::selection {
+  background: lightblue;
 }
 
 body {
@@ -46,7 +49,9 @@ body {
   transition: 0.25s;
   margin-right: 1em;
 }
-button, .btn {
+
+button,
+.btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,6 +63,8 @@ button, .btn {
 }
 
 nav {
+  display: flex;
+  align-items: center;
   background-color: #38618c;
   height: 80px;
   width: 100%;
@@ -75,27 +82,16 @@ label.header {
   text-shadow: 3px 5px 20px #230622aa;
 }
 
-nav ul {
-  float: right;
-  margin-right: 80px;
-}
-
-nav ul li {
-  display: inline-block;
-  line-height: 80px;
-}
-
 nav ul li a {
   color: var(--white);
   font-size: 17px;
   padding: 7px 13px;
   border-radius: 13px;
-  text-transform: lowercase;
+  background-color: #1f4872;
 }
 
 a.active,
 a:hover {
-  /* background: var(--purple); */
   background: #35a7ff;
   transition: 0.5s;
 }
@@ -103,6 +99,12 @@ a:hover {
 #searchbtn {
   width: 18px;
   height: 21px;
+}
+
+.pagenumber {
+  text-align: center;
+  color: #fff;
+  margin: 8px;
 }
 
 .pagebtn {
@@ -113,10 +115,14 @@ a:hover {
   height: 40px;
   border-radius: 50px;
   cursor: pointer;
+  margin: 7px 5px;
 }
 
 .pagebtn_container {
   display: flex;
+  background-color: #1f4872;
+  border-radius: 6px;
+  margin-bottom: 8px;
 }
 
 .input:focus {
@@ -126,26 +132,85 @@ a:hover {
 
 .section_container {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 2.5em;
 }
 
-
 .card {
-  width: 700px;
-  height: 850px;
-  /* margin: 0 auto; */
-  /* background-color: #011522; */
+  width: 500px;
+  height: auto;
+  min-height: 880px;
   background-color: #38618c;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  align-items: center; 
+  margin: 0px 4vw;
+  margin-bottom: 2.5em;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+}
+
+.movietitle {
+  text-align: center ;
+}
+
+.moviecard {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px 0px;
+  background-color: #1f4872;
+  border-radius: 15px;
+  padding: 10px;
+  width: 220px;
+  border: solid #fff;
 }
 
 h2 {
   color: white;
-  margin: 5px 0px 0px 10px;
+  margin: 5px 10px !important;
+  font-size: 26px !important;
+  text-align: center;
+}
+
+
+
+@media only screen and (max-width: 767px) {
+  .section_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    width: 475px;
+    height: auto;
+  }
+
+  .header {
+    margin: 0;
+    padding: 10px;
+  }
+
+  /* #cont {
+    padding: 0;
+  } */
+  label {
+    padding: 5px;
+  }
+
+  .search_bar input {
+    width: 300px;
+    height: 35px;
+  }
 }
