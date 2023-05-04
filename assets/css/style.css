@@ -1,10 +1,6 @@
 :root {
-  --blue: #12d2db;
   --white: #fcf2fa;
-  --shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.3);
-  --navColor: linear-gradient(to right,
-      rgba(178, 47, 147, 0.6) 5%,
-      rgba(35, 6, 34, 0.9));
+  --main-color: #38618c;
 }
 
 .poster {
@@ -65,7 +61,7 @@ button,
 nav {
   display: flex;
   align-items: center;
-  background-color: #38618c;
+  background-color: var(--main-color);
   height: 80px;
   width: 100%;
 }
@@ -147,7 +143,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   margin: 0px 4vw;
   margin-bottom: 2.5em;
 }
@@ -159,7 +155,7 @@ a:hover {
 }
 
 .movietitle {
-  text-align: center ;
+  text-align: center;
 }
 
 .moviecard {
@@ -182,8 +178,6 @@ h2 {
   text-align: center;
 }
 
-
-
 @media only screen and (max-width: 767px) {
   .section_container {
     display: flex;
@@ -202,9 +196,6 @@ h2 {
     padding: 10px;
   }
 
-  /* #cont {
-    padding: 0;
-  } */
   label {
     padding: 5px;
   }
