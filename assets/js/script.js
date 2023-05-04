@@ -4,6 +4,8 @@ let searchBar = document.querySelector('.search_bar input');
 let history = localStorage.getItem("omdbStorage") ? JSON.parse(localStorage.getItem("omdbStorage")) : [];
 let history2 = localStorage.getItem("nytimesStorage") ? JSON.parse(localStorage.getItem("nytimesStorage")) : [];
 
+
+
 function getApi(newQuery) {
    if (newQuery) previousSearch = searchBar.value;
    if (!previousSearch) return;
@@ -81,6 +83,7 @@ function getApi(newQuery) {
             let data = json.results;
             console.log(data);
             for (let i = 0; i < data.length; i++) {
+               
                let movie = data[i];
                let img = document.createElement('img');
                if (movie.multimedia === null) continue;
@@ -92,3 +95,5 @@ function getApi(newQuery) {
       });
    })();
 }
+
+
