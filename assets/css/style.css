@@ -20,6 +20,9 @@
   text-decoration: none;
   box-sizing: border-box;
 }
+::selection {
+  background: lightblue;
+}
 
 body {
   font-family: "Poppins", sans-serif;
@@ -59,6 +62,8 @@ button,
 }
 
 nav {
+  display: flex;
+  align-items: center;
   background-color: #38618c;
   height: 80px;
   width: 100%;
@@ -74,16 +79,6 @@ label.header {
   font-style: italic;
   transition: 0.2s ease;
   text-shadow: 3px 5px 20px #230622aa;
-}
-
-nav ul {
-  float: right;
-  margin-right: 80px;
-}
-
-nav ul li {
-  display: inline-block;
-  line-height: 80px;
 }
 
 nav ul li a {
@@ -158,23 +153,19 @@ h2 {
   }
   .card {
     width: 475px;
-   height: auto;
+    height: auto;
   }
   .header {
     margin: 0;
     padding: 10px;
   }
-  /* nav {
-    display: flex;
-    flex-wrap: wrap;
-  } */
-  #cont {
+  /* #cont {
     padding: 0;
-  }
+  } */
   label {
     padding: 5px;
   }
-  
+
   .search_bar input {
     width: 300px;
     height: 35px;
