@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <title>Movies Ranking</title>
-  
+
 <body>
   <nav>
     <label class="header">MoviesReviews</label>
@@ -21,14 +21,13 @@
 
   <div class="search_bar">
     <input type="text" placeholder="Search here..." name="text" class="input">
-    <button class = "button" id="btn" onclick="getApi()"><img id="btn" src="/img/search.png"></button>
+    <button class="button" id="btn" onclick="getApi(true)"><img id="searchbtn" src="./assets/img/search.png"></button>
   </div>
 
   <div class="section_container">
     <section class="card" id="firstA">
       <h2>First API</h2>
       <div class="content">
-
       </div>
     </section>
     <section class="card" id="secondA">
@@ -38,7 +37,7 @@
       </div>
     </section>
   </div>
-  
+
 </body>
 <script src="assets/js/script.js"></script>
 

@@ -4,16 +4,17 @@ let searchBar = document.querySelector('.search_bar input');
 let history = localStorage.getItem("omdbStorage") ? JSON.parse(localStorage.getItem("omdbStorage")) : [];
 let history2 = localStorage.getItem("nytimesStorage") ? JSON.parse(localStorage.getItem("nytimesStorage")) : [];
 
-
-function getApi() {
-   if (!searchBar.value) return;
+function getApi(newQuery) {
+   if (newQuery) previousSearch = searchBar.value;
+   if (!previousSearch) return;
+   if (newQuery) omdbPageNumber = 1;
    // eeff1550
    // GrJLtpKFDzJKSy1um4IkiszoYQGrxb26
-   let omdb = "https://www.omdbapi.com/?apikey=eeff1550&type=movie" + "&s=" + searchBar.value;
-   let nytimes = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=GrJLtpKFDzJKSy1um4IkiszoYQGrxb26" + "&query=" + searchBar.value;
+   let omdb = "https://www.omdbapi.com/?apikey=eeff1550&type=movie" + "&page=" + omdbPageNumber + "&s=" + previousSearch;
+   let nytimes = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=GrJLtpKFDzJKSy1um4IkiszoYQGrxb26" + "&query=" + previousSearch;
    (function () {
       for (let i = 0; i < history.length; i++) {
-         if (history[i].name === searchBar.value) {
+         if (history[i].name === previousSearch && omdbPageNumber == history[i].page) {
             omdbImgContainer.innerHTML = "";
             let data = history[i].value;
             for (let i = 0; i < data.length; i++) {
@@ -30,17 +31,17 @@ function getApi() {
       fetch(omdb).then(function (response) {
          response.json().then(function (json) {
             if (json.Response !== "True") return console.error("The search returned no results for omdb"); // we probably want to do more than logging an error.
-            history.push({ value: json.Search, name: searchBar.value });
+            history.push({ value: json.Search, name: previousSearch, page: omdbPageNumber });
             localStorage.setItem("omdbStorage", JSON.stringify(history));
             omdbImgContainer.innerHTML = "";
             let data = json.Search;
             for (let i = 0; i < data.length; i++) {
-  
-                  var title = json['Title']
-                  var time = json['Year']
-      
-                  movie.innerHTML = `Movie: ${title}`
-                  Year.innerHTML = `Year: ${time} `
+
+               var title = json['Title']
+               var time = json['Year']
+
+               // movie.innerHTML = `Movie: ${title}`
+               // Year.innerHTML = `Year: ${time} `
 
                let movie = data[i];
                let img = document.createElement('img');
@@ -80,7 +81,6 @@ function getApi() {
             let data = json.results;
             console.log(data);
             for (let i = 0; i < data.length; i++) {
-               
                let movie = data[i];
                let img = document.createElement('img');
                if (movie.multimedia === null) continue;
