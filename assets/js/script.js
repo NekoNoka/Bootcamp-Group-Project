@@ -1,6 +1,7 @@
 let omdbImgContainer = document.querySelector('#firstA .content');
 let nytimesImgContainer = document.querySelector('#secondA .content');
 let searchBar = document.querySelector('.search_bar input');
+let pagenumberDiv = document.querySelector(".pagenumber");
 let omdbStorage = localStorage.getItem("omdbStorage") ? JSON.parse(localStorage.getItem("omdbStorage")) : [];
 let nytStorage = localStorage.getItem("nytimesStorage") ? JSON.parse(localStorage.getItem("nytimesStorage")) : [];
 let omdbPageNumber = 1;
@@ -10,7 +11,10 @@ let lastOmdbPage = 1;
 function getApi(newQuery) {
    if (newQuery) previousSearch = searchBar.value;
    if (!previousSearch) return;
-   if (newQuery) omdbPageNumber = 1;
+   if (newQuery) {
+      omdbPageNumber = 1;
+      pagenumberDiv.textContent = "Page: 1";
+   }
    // eeff1550
    // GrJLtpKFDzJKSy1um4IkiszoYQGrxb26
    let omdb = "https://www.omdbapi.com/?apikey=eeff1550&type=movie" + "&page=" + omdbPageNumber + "&s=" + previousSearch;
@@ -35,6 +39,7 @@ function getApi(newQuery) {
                img.classList.add("poster");
             }
             container.classList.add("moviecard");
+            titleDiv.classList.add("movietitle");
             container.appendChild(titleDiv);
             container.appendChild(yearDiv);
             container.appendChild(img);
@@ -65,6 +70,7 @@ function getApi(newQuery) {
                   img.src = movie.Poster;
                }
                container.classList.add("moviecard");
+               titleDiv.classList.add("movietitle");
                container.appendChild(titleDiv);
                container.appendChild(yearDiv);
                container.appendChild(img);
@@ -100,6 +106,7 @@ function getApi(newQuery) {
                   img.src = movie.multimedia.src;
                }
                container.classList.add("moviecard");
+               titleDiv.classList.add("movietitle");
                container.appendChild(titleDiv);
                container.appendChild(yearDiv);
                container.appendChild(img);
@@ -135,6 +142,7 @@ function getApi(newQuery) {
                      img.src = movie.multimedia.src;
                   }
                   container.classList.add("moviecard");
+                  titleDiv.classList.add("movietitle");
                   container.appendChild(titleDiv);
                   container.appendChild(yearDiv);
                   container.appendChild(img);
@@ -147,24 +155,29 @@ function getApi(newQuery) {
    }
 }
 function setPage(id) {
+   if (!previousSearch) return;
    if (id == 1) {
       omdbPageNumber = 1;
+      pagenumberDiv.textContent = "Page: 1";
       getApi();
    }
    if (id == 2) {
       if (omdbPageNumber > 1) {
          omdbPageNumber--;
+         pagenumberDiv.textContent = "Page: " + omdbPageNumber;
          getApi();
       }
    }
    if (id == 3) {
-      if (omdbPageNumber <= lastOmdbPage) {
+      if (omdbPageNumber < lastOmdbPage) {
          omdbPageNumber++;
+         pagenumberDiv.textContent = "Page: " + omdbPageNumber;
          getApi();
       }
    }
    if (id == 4) {
       omdbPageNumber = lastOmdbPage;
+      pagenumberDiv.textContent = "Page: " + omdbPageNumber;
       getApi();
    }
 }
@@ -192,6 +205,7 @@ function a() {
                   img.classList.add("poster");
                }
                container.classList.add("moviecard");
+               titleDiv.classList.add("movietitle");
                container.appendChild(titleDiv);
                container.appendChild(yearDiv);
                container.appendChild(img);
