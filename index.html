@@ -5,23 +5,28 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  
   <link rel="stylesheet" href="assets/css/style.css" />
   <title>Movies Ranking</title>
 
 <body>
   <nav>
+    
     <label class="header">MoviesReviews</label>
     <ul>
       <li><a href="#" class="active">Home</a></li>
       <li><a href="#">Likes</a></li>
       <li><a href="#">Saved</a></li>
-      <li><a href="#">contact</a></li>
+      <li><a href="#contact">contact</a></li>
     </ul>
   </nav>
 
   <div class="search_bar">
     <input type="text" placeholder="Search here..." name="text" class="input">
-    <button class="button" id="btn" onclick="getApi(true)"><img id="searchbtn" src="./assets/img/search.png"></button>
+    <button class="btn" onclick="getApi(true)">
+      <img id="searchbtn" src="./assets/img/search.png">
+    </button>
   </div>
 
   <div class="section_container">
@@ -38,7 +43,63 @@
       </div>
     </section>
   </div>
-
+  <section id="contact">
+    <div class="bg-white py-24 sm:py-32 " >
+  <div class="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3 ">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl ">Our Team</h2>
+      <p class="mt-6 text-lg leading-8 text-gray-600 ">We’re a dynamic group of individuals who are passionate about what we do and dedicated to delivering the best results for our clients.</p>
+    </div>
+    <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2" >
+      <li>
+        <div class="flex items-center gap-x-6">
+          <img class="h-16 w-16 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript logo">
+          <div>
+            <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Aden</h3>
+            <p class="text-sm font-semibold leading-6">JavaScript</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="flex items-center gap-x-6">
+          <img class="h-16 w-16 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript logo">
+          <div>
+            <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Sccott</h3>
+            <p class="text-sm font-semibold leading-6">JavaScript</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="flex items-center gap-x-6">
+          <img class="h-16 w-16 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript logo">
+          <div>
+            <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Elenilson</h3>
+            <p class="text-sm font-semibold leading-6">JavaScript</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="flex items-center gap-x-6">
+          <img class="h-16 w-16 rounded-full" src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_1280.png" alt="CSS logo">
+          <div>
+            <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Evelin</h3>
+            <p class="text-sm font-semibold leading-6">CSS</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="flex items-center gap-x-6">
+          <img class="h-16 w-16 rounded-full " src="https://w7.pngwing.com/pngs/201/90/png-transparent-logo-html-html5.png" alt="HTML logo">
+          <div>
+            <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Jair</h3>
+            <p class="text-sm font-semibold leading-6">HTML / CSS</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+  </section>
 </body>
 <script src="assets/js/script.js"></script>
 
