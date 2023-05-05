@@ -1,10 +1,7 @@
 :root {
-  --blue: #12d2db;
   --white: #fcf2fa;
-  --shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.3);
-  --navColor: linear-gradient(to right,
-      rgba(178, 47, 147, 0.6) 5%,
-      rgba(35, 6, 34, 0.9));
+  --main-color: #38618c;
+  --shadow-bg: #1f4872;
 }
 
 .poster {
@@ -65,7 +62,7 @@ button,
 nav {
   display: flex;
   align-items: center;
-  background-color: #38618c;
+  background-color: var(--main-color);
   height: 80px;
   width: 100%;
 }
@@ -87,7 +84,7 @@ nav ul li a {
   font-size: 17px;
   padding: 7px 13px;
   border-radius: 13px;
-  background-color: #1f4872;
+  background-color: var(--shadow-bg);
 }
 
 a.active,
@@ -120,7 +117,7 @@ a:hover {
 
 .pagebtn_container {
   display: flex;
-  background-color: #1f4872;
+  background-color: var(--shadow-bg);
   border-radius: 6px;
   margin-bottom: 8px;
 }
@@ -147,7 +144,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   margin: 0px 4vw;
   margin-bottom: 2.5em;
 }
@@ -159,7 +156,7 @@ a:hover {
 }
 
 .movietitle {
-  text-align: center ;
+  text-align: center;
 }
 
 .moviecard {
@@ -168,7 +165,7 @@ a:hover {
   flex-direction: column;
   align-items: center;
   margin: 8px 0px;
-  background-color: #1f4872;
+  background-color: var(--shadow-bg);
   border-radius: 15px;
   padding: 10px;
   width: 220px;
@@ -181,8 +178,6 @@ h2 {
   font-size: 26px !important;
   text-align: center;
 }
-
-
 
 @media only screen and (max-width: 767px) {
   .section_container {
@@ -202,9 +197,6 @@ h2 {
     padding: 10px;
   }
 
-  /* #cont {
-    padding: 0;
-  } */
   label {
     padding: 5px;
   }
