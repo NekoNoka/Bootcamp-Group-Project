@@ -1,6 +1,7 @@
 :root {
   --white: #fcf2fa;
   --main-color: #38618c;
+  --shadow-bg: #1f4872;
 }
 
 .poster {
@@ -83,7 +84,7 @@ nav ul li a {
   font-size: 17px;
   padding: 7px 13px;
   border-radius: 13px;
-  background-color: #1f4872;
+  background-color: var(--shadow-bg);
 }
 
 a.active,
@@ -116,7 +117,7 @@ a:hover {
 
 .pagebtn_container {
   display: flex;
-  background-color: #1f4872;
+  background-color: var(--shadow-bg);
   border-radius: 6px;
   margin-bottom: 8px;
 }
@@ -164,7 +165,7 @@ a:hover {
   flex-direction: column;
   align-items: center;
   margin: 8px 0px;
-  background-color: #1f4872;
+  background-color: var(--shadow-bg);
   border-radius: 15px;
   padding: 10px;
   width: 220px;
