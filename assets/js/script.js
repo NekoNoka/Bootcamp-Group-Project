@@ -10,19 +10,13 @@ let lastOmdbPage = 1;
 
 
 let myText = document.getElementById("my-text");
-let btn2 = document.getElementById("btn2")
 
 myText.addEventListener("keyup", e => {
    e.preventDefault();
-   if(e.keyCode === 13){
-         console.log("enter is pressed");
-      btn2.click();
+   if (e.keyCode === 13) {
+      getApi(true);
    }
-})
- btn2.addEventListener("click", () => {
-    alert("button is click");
-
- });
+});
 
 
 function getApi(newQuery) {
