@@ -1,19 +1,29 @@
 let omdbImgContainer = document.querySelector('#firstA .content');
 let nytimesImgContainer = document.querySelector('#secondA .content');
 let searchBar = document.querySelector('.search_bar input');
-<<<<<<< HEAD
-let history = localStorage.getItem("omdbStorage") ? JSON.parse(localStorage.getItem("omdbStorage")) : [];
-let history2 = localStorage.getItem("nytimesStorage") ? JSON.parse(localStorage.getItem("nytimesStorage")) : [];
-var omdbPageNumber = 1;
-var previousSearch = "";
-=======
 let pagenumberDiv = document.querySelector(".pagenumber");
 let omdbStorage = localStorage.getItem("omdbStorage") ? JSON.parse(localStorage.getItem("omdbStorage")) : [];
 let nytStorage = localStorage.getItem("nytimesStorage") ? JSON.parse(localStorage.getItem("nytimesStorage")) : [];
 let omdbPageNumber = 1;
 let previousSearch = "";
 let lastOmdbPage = 1;
->>>>>>> 7d93224c528b58e787d531d9ed993b1de3806c13
+
+
+let myText = document.getElementById("my-text");
+let btn2 = document.getElementById("btn2")
+
+myText.addEventListener("keyup", e => {
+   e.preventDefault();
+   if(e.keyCode === 13){
+         console.log("enter is pressed");
+      btn2.click();
+   }
+})
+ btn2.addEventListener("click", () => {
+    alert("button is click");
+
+ });
+
 
 function getApi(newQuery) {
    if (newQuery) previousSearch = searchBar.value;
@@ -89,34 +99,6 @@ function getApi(newQuery) {
    })();
    if (newQuery) {
       (function () {
-<<<<<<< HEAD
-         for (let i = 0; i < history2.length; i++) {
-            if (history2[i].name === searchBar.value) {
-               nytimesImgContainer.innerHTML = "";
-               let data = history2[i].value.results;
-               for (let i = 0; i < data.length; i++) {
-                  let movie = data[i];
-                  let img = document.createElement('img');
-                  if (movie.multimedia === null) continue;
-                  img.classList.add("poster");
-                  img.src = movie.multimedia.src;
-                  nytimesImgContainer.appendChild(img);
-               }
-               return;
-            }
-         }
-         fetch(nytimes).then(function (response) {
-            console.log(response);
-            response.json().then(function (json) {
-               console.log(json.status, json);
-               if (json.status !== "OK") return console.error("The search broke for nytimes"); // we probably want to do more than logging an error.
-               if (json.results === null) return console.error("The search returned no results for nytimes"); // we probably want to do more than logging an error.
-               history2.push({ value: json, name: searchBar.value });
-               localStorage.setItem("nytimesStorage", JSON.stringify(history2));
-               nytimesImgContainer.innerHTML = "";
-               let data = json.results;
-               console.log(data);
-=======
          nytimesImgContainer.innerHTML = "";
          let tempFound = false;
          for (let i = 0; i < nytStorage.length; i++) {
@@ -155,7 +137,6 @@ function getApi(newQuery) {
                if (json.status !== "OK") return console.error("The search broke for nytimes"); // we probably want to do more than logging an error.
                if (json.results === null) return console.error("The search returned no results for nytimes"); // we probably want to do more than logging an error.
                let data = json.results;
->>>>>>> 7d93224c528b58e787d531d9ed993b1de3806c13
                for (let i = 0; i < data.length; i++) {
                   let movie = data[i];
                   let container = document.createElement("div");
@@ -210,26 +191,13 @@ function setPage(id) {
       }
    }
    if (id == 4) {
-<<<<<<< HEAD
-      omdbPageNumber = 4
-      getApi();
-   }
-   if (id == 5) {
-      omdbPageNumber = 5
-=======
       omdbPageNumber = lastOmdbPage;
       pagenumberDiv.textContent = "Page: " + omdbPageNumber;
->>>>>>> 7d93224c528b58e787d531d9ed993b1de3806c13
       getApi();
    }
 }
 
 
-<<<<<<< HEAD
-
-
-
-=======
 function a() {
    for (var i = 0; i < omdbStorage.length; i++) {
       for (var j = 0; j < nytStorage.length; j++) {
@@ -275,4 +243,3 @@ function a() {
       }
    }
 }
->>>>>>> 7d93224c528b58e787d531d9ed993b1de3806c13
